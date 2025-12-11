@@ -1,0 +1,15 @@
+services:
+  backend:
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/usr/src/app
+    environment:
+      NODE_ENV: development
+      PORT: 8000
+      DATABASE_URL: ${DATABASE_URL}
+
+  frontend:
+    environment:
+      NODE_ENV: development
+      NEXT_PUBLIC_API_URL: "http://localhost:8000"
